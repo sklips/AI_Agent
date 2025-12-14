@@ -31,9 +31,9 @@ def main():
     )
     if args.verbose:
         print(f"User prompt: {args.user_prompt}")
-    print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
-    print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
-    print(response.text)
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+        print(response.text)
 
 
 if __name__ == "__main__":
