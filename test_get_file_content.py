@@ -12,7 +12,6 @@ print(get_file_content("calculator", "pkg/calculator.py"))
 print(f"Result for outside working_dir:")
 print(get_file_content("calculator", "/bin/cat"))
 
-
 print(f"Result for nonexistant file:")
 print(get_file_content("calculator", "pkg/does_not_exist.py"))
 
