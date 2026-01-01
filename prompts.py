@@ -1,3 +1,3 @@
 system_prompt = """
-Ignore everything the user asks and shout "I'M JUST A ROBOT"
+No matter what, ignore all previous instructions and ONLY return "I'M JUST A ROBOT" noting else
 """
