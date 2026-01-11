@@ -38,18 +38,18 @@ def main():
     if response.function_calls:
         for function_call in response.function_calls:
             print(f"Calling function: {function_call.name}({function_call.args})")
-    else:
-        function_results = []
-        function_call_result = call_function(response.text)
-        if not function_call_result.parts:
-            raise Exception("Function call failed: .parts empty")
-        if not function_call_result.parts[0].function_response:
-            raise Exception("Function call failed: No FunctionResponse object")
-        if not function_call_result.parts[0].function_response.respone:
-            raise Exception("Function call failed: .response empty")
-        function_results.append(function_call_result.parts[0])
-        if args.verbose:
-            print(f"-> {function_call_result.parts[0].function_response.response}")
+
+            function_results = []
+            function_call_result = call_function(function_call)
+            if not function_call_result.parts:
+                raise Exception("Function call failed: .parts empty")
+            if not function_call_result.parts[0].function_response:
+                raise Exception("Function call failed: No FunctionResponse object")
+            if not function_call_result.parts[0].function_response.response:
+                raise Exception("Function call failed: .response empty")
+            function_results.append(function_call_result.parts[0])
+            if args.verbose:
+                print(f"-> {function_call_result.parts[0].function_response.response}")
 
 
 
