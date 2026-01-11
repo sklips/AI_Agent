@@ -37,7 +37,7 @@ def run_python_file(working_directory, file_path, args=None):
         return f"Error: executing Python file: {e}"
 
 
-schema_get_file_content = types.FunctionDeclaration(
+schema_run_python_file = types.FunctionDeclaration(
     name="run_python_file",
     description="Runs specified python function if it exists",
     parameters=types.Schema(
@@ -45,7 +45,14 @@ schema_get_file_content = types.FunctionDeclaration(
         properties={
             "file_path": types.Schema(
                 type=types.Type.STRING,
-                description="Path of file to be read",
+                description="The path to the .py file to execute",
+            ),
+            "args": types.Schema(
+                type=types.Type.ARRAY,
+                description="List of string arguments to pass to the script",
+                items=types.Schema(
+                    type=types.Type.STRING,
+                )
             ),
         },
         required=["file_path"]
